@@ -1,0 +1,31 @@
+/* COLOR SCHEME Hex codes: ethereal ivory #E4E4DE, sophisticated sage #C4C5BA, timeless noir #1B1B1B, muted moss #595f39
+
+ */ 
+ #nav {
+    text-align: center;
+ }
+
+ .navlinks{
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    display: inline;
+    padding: 8px;
+
+
+ }
+
+ body{
+    font-family: Helvetica, Arial,  sans-serif;
+    background-color: #E4E4DE;
+ }
+ 
+ .header{
+    text-align: center;
+ }
+ .paragraph{
+    background-color: #C4C5BA;
+    width: 150px;
+    margin: 15px;
+    border-radius: 10px;
+ }
