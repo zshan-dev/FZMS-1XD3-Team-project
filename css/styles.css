@@ -2,30 +2,36 @@
 
  */ 
  #nav {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: #C4C5BA;
  }
 
  .navlinks{
-    text-align: center;
-    list-style-type: none;
-    margin: 0;
-    display: inline;
-    padding: 8px;
-
-
+    margin: 10px;
+    padding: 15px;
+    background-color: #595f39;
+    border-radius: 10px;
+    color: white;
  }
 
  body{
     font-family: Helvetica, Arial,  sans-serif;
     background-color: #E4E4DE;
  }
+
+ .title{
+   text-align: center;
+ }
  
  .header{
-    text-align: center;
+   text-align: center;
  }
  .paragraph{
     background-color: #C4C5BA;
-    width: 150px;
+    width: auto;
     margin: 15px;
+    padding: 10px;
     border-radius: 10px;
+    border: 5px solid #595f39;
  }
