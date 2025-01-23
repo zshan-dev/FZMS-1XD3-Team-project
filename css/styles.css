@@ -6,6 +6,7 @@
    font-family: Helvetica, Arial,  sans-serif;
    background-color: #E4E4DE;
    margin:0;
+   width: auto;
 }
 
 #container{
@@ -76,16 +77,35 @@ padding: 20px;
 border: 5px solid #595f39;
 border-radius: 20px;}
 
+.designdotjots{
+  list-style-type: none;
+  margin: 10px;
+}
+
+.designlist{
+  padding-left: 0px;
+}
+
 .flex {
 display: flex;
+justify-content: space-around;
+align-items: center; /* Aligns content vertically */
 }
 
 .flexpic {
 padding-top: 20px;
-padding-right: 15px;
+margin-right: 10px;
+padding-right: 7px;
 padding-bottom: 20px;
 width: 35%;
 }
+
+.flexpicLEFT {
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  width: 35%;
+  }
 
 .flexforphotos {
 display: flex; 
