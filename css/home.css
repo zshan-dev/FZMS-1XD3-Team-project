@@ -1,0 +1,9 @@
+#home_body{
+    background-image: url("/images/forge_bg.jpg");
+    background-size: 1920px;
+  }
+
+  h1{
+    font-size: 200px;
+    color: white;
+  }
