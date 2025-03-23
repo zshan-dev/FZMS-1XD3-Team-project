@@ -9,64 +9,144 @@
             font-family: Arial, sans-serif;
             margin: 40px;
             padding: 20px;
-            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+
         }
         .container {
             max-width: 800px;
-            background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1, h2 {
             color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #444;
+            margin-top: 20px;
+        }
+        .section {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
         }
         ul {
             list-style-type: none;
             padding: 0;
         }
         li {
-            margin: 5px 0;
+            margin: 8px 0;
+            padding: 10px;
+
+            border-radius: 5px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
         }
-    </style>
+        .table-description {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        }
+        p, li {
+            color: #444;
+        }
+        code {
+            background-color: rgb(138, 140, 141);
+            color: white;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>    
 </head>
 <body>
     <div class="container">
         <h1>Project Planning Document</h1>
-        
+    
         <h2>1. Names</h2>
         <p><strong>Team:</strong> FZMS Full Stack Forge</p>
-        <p><strong>Members:</strong> Zeeshan, Faaz, Seif, Mo</p>
-        <p><strong>Client:</strong> Ahmed Ali. </p>
-        <p><strong>App Name:</strong> [App Name]</p>
-        
+        <p><strong>Members:</strong> Zeeshan, Faaz, Seif, Mahdi</p>
+        <p><strong>Client:</strong> bangyourhead.ca</p>
+        <p><strong>App Name:</strong> BookMate</p>
+    
         <h2>2. Purpose</h2>
-        <p>A program so that you can book a time slot on a calander for a </p>
-        
+        <p>A program that allows customers to book a time slot on a calendar for a window cleaning or landscaping service. It notifies the business owner of the job details, including price, location, and date/time.</p>
+    
         <h2>3. Data Description</h2>
-        <p>The tables will have Month, Data, Time and type of service </p>
         
+        <div class="table-description">
+            <h3>Appointments Table</h3>
+            <p><strong>Purpose:</strong> Stores appointment details to manage service bookings.</p>
+            <p><strong>Information Stored:</strong> Includes date, time, type of service, customer, and job status.</p>
+            <ul>
+                <li><strong>appointment_id</strong> (INT, PRIMARY KEY, AUTO_INCREMENT) - Unique identifier</li>
+                <li><strong>date</strong> (DATE) - Scheduled appointment date</li>
+                <li><strong>time</strong> (TIME) - Scheduled appointment time</li>
+                <li><strong>service_type</strong> (VARCHAR(100)) - Type of service requested</li>
+                <li><strong>customer_id</strong> (INT, FOREIGN KEY) - Links to the customer</li>
+                <li><strong>status</strong> (ENUM('pending', 'confirmed', 'completed')) - Appointment status</li>
+            </ul>
+            <h3>Customers Table</h3>
+            <p><strong>Purpose:</strong> Stores customer information for appointment tracking.</p>
+            <p><strong>Information Stored:</strong> Includes customer details such as name, phone, and email.</p>
+            <ul>
+                <li><strong>customer_id</strong> (INT, PRIMARY KEY, AUTO_INCREMENT) - Unique identifier</li>
+                <li><strong>name</strong> (VARCHAR(255)) - Full name of the customer</li>
+                <li><strong>phone_number</strong> (VARCHAR(20)) - Customer phone number</li>
+                <li><strong>email</strong> (VARCHAR(255)) - Customer email address</li>
+            </ul>
+        </div>
+    
         <h2>4. Functions Performed by the App</h2>
         <ul>
-            <li>Book a date and time - Update the table to reflect the day that was booked </li>
+            <li><strong>Book a date and time</strong> - Allows users to select an available slot for a service. <br>
+                Database effect: INSERTS a new appointment into the <code>appointments</code> table.</li>
+            
+            <li><strong>Modify a booking</strong> - Users can update their booking details (e.g., change date/time). <br>
+                Database effect: UPDATES an existing record in the <code>appointments</code> table.</li>
+            
+            <li><strong>Cancel a booking</strong> - Users can cancel a scheduled appointment. <br>
+                Database effect: DELETES the record from the <code>appointments</code> table.</li>
+            
+            <li><strong>View available time slots</strong> - Displays open booking slots for services. <br>
+                Database effect: SELECTS available time slots from the <code>appointments</code> table.</li>
+            
+            <li><strong>View customer details</strong> - Admins can see customer contact info for bookings. <br>
+                Database effect: SELECTS customer details from the <code>customers</code> table.</li>
+            
+            <li><strong>Send confirmation notifications</strong> - Notifies users and business owners about confirmed bookings. <br>
+                Database effect: No direct effect on the database (handled via external email/SMS service).</li>
         </ul>
         
+    
         <h2>5. Role of PHP and JavaScript</h2>
-        <p>[Description of PHP and JavaScript usage]</p>
-        
+        <p><strong>PHP:</strong> Handles backend operations, such as storing and retrieving booking data from the database, processing form submissions, and sending email notifications.</p>
+        <p><strong>JavaScript:</strong> Provides interactivity, such as dynamic calendar updates, form validation, and real-time availability checks without reloading the page.</p>
+    
         <h2>6. Roles of Team Members</h2>
         <ul>
-            <li>Seif - [Responsibility]</li>
-            <li>Faaz - [Responsibility]</li>
-            <li>Zeeshan - [Responsibility]</li>
-            <li>Mo - [Responsibility]</li>
+            <li><strong>Seif:</strong> Backend focus (database setup, PHP scripts, API integration)</li>
+            <li><strong>Faaz:</strong> Fullstack development (helping on both)</li>
+            <li><strong>Zeeshan:</strong> Full-stack development (bridging frontend and backend)</li>
+            <li><strong>Mahdi:</strong> Frontend focu and JavaScript</li>
         </ul>
-        
+    
         <h2>7. The Increments</h2>
-        <p>Create a linked table that can be updated VIA inputs from the user</p>
-        
+        <p>Development will be done in the following increments:</p>
+        <ul>
+            <li>Set up database schema and backend logic</li>
+            <li>Develop basic frontend booking interface</li>
+            <li>Integrate booking system with backend</li>
+            <li> Working table to insert data manually at least</li>
+        </ul>
+    
         <h2>8. Client Feedback</h2>
-        <p>[Client feedback and any changes made based on it]</p>
+        <p>Client feedback will be gathered after an initial prototype is made. The system will be changed based on requested features, UI/UX preferences, and any other concerns.</p>
     </div>
 </body>
 </html>
